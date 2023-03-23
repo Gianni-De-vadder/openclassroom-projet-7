@@ -22,28 +22,14 @@ actions = [
 ]
 
 
-def brute_force(actions, budget):
-    n = len(actions)
-    best_combination = None
-    best_profit = 0
-
-    for i in range(2**n):
-        combination = []
-        profit = 0
-        total_cost = 0
-
-        for j in range(n):
-            if (i >> j) & 1:
-                action = actions[j]
-                combination.append(action)
-                profit += action["benefice"]
-                total_cost += action["cout"]
-
-        if total_cost <= budget and profit > best_profit:
-            best_profit = profit
-            best_combination = combination
-
-    return best_combination
+def greedy(actions, budget):
+    sorted_actions = sorted(actions, key=lambda x: x["benefice"], reverse=True)
+    combination = []
+    for action in sorted_actions:
+        if budget >= action["cout"]:
+            combination.append(action)
+            budget -= action["cout"]
+    return combination
 
 
-print(brute_force(actions, 500))
+print(greedy(actions, 500))
