@@ -1,0 +1,14 @@
+Lire le fichier CSV contenant les données des actions
+Initialiser une liste vide pour stocker les actions valides
+Pour chaque ligne du fichier CSV :
+a. Récupérer le nom, le prix et le pourcentage de profit de l'action
+b. Si le prix et le pourcentage de profit sont supérieurs à 0, créer un objet "Action" avec ces informations et l'ajouter à la liste d'actions valides
+Trier la liste d'actions valides par ordre décroissant de pourcentage de profit
+Initialiser une liste vide pour stocker les actions sélectionnées
+Initialiser le coût total et le profit total à 0
+Pour chaque action dans la liste triée :
+a. Si le coût total plus le prix de l'action est inférieur ou égal à la somme maximale investie :
+i. Ajouter l'action à la liste des actions sélectionnées
+ii. Ajouter le prix de l'action au coût total
+iii. Ajouter le profit de l'action au profit total
+Afficher la liste des actions sélectionnées, le coût total et le profit total.

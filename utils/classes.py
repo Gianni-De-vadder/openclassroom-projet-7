@@ -83,9 +83,9 @@ class InvestmentOptimizer:
         print(f"\nLes plus profitables ({len(best_combo)} Actions) :\n")
         for share in best_combo:
             print(share)
-        print("\nCout total : ", InvestmentOptimizer.calc_cost(best_combo), "€")
+        print(f"\nCout total : {InvestmentOptimizer.calc_cost(best_combo):.2f} €")
         print(
-            "Profit après 2 ans : +", InvestmentOptimizer.calc_profit(best_combo), "€"
+            f"Profit après 2 ans : {InvestmentOptimizer.calc_profit(best_combo):.2f} €"
         )
 
     def optimize_investment(self):
@@ -111,6 +111,8 @@ class InvestmentOptimizerGreedy:
             shares_file = csv.reader(csvfile, delimiter=",")
             for row in shares_file:
                 name, price, profit = row
+                if float(row[1]) <= 0 or float(row[2]) <= 0:
+                    continue
                 shares_list.append(Share(name, float(price), float(profit)))
         return shares_list
 

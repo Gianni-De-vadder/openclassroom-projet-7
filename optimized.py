@@ -3,7 +3,7 @@ import sys, cProfile
 
 invesment = InvestmentOptimizerGreedy(500, sys.argv[1])
 
-print(len(sys.argv))
+
 if len(sys.argv) >= 3 and sys.argv[2] == "true":
     cProfile.run("invesment.optimize_investment()", sort="tottime")
 else:
